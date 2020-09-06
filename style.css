@@ -1,0 +1,228 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--font-color-primary);
+    background-color: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav a,
+button,
+footer {
+    font-family: var(--font-headers);
+}
+
+
+h2 {
+    color: var(--secondary-light);
+    font-size: 4rem;
+    text-align: center;
+}
+
+h3 {
+    margin: 0;
+}
+
+h4 {
+    margin: 1vw;
+}
+
+.prices h4:first-of-type {
+    float: left;
+}
+
+.prices h4:last-of-type {
+    float: right;
+    background-color: red;
+    color: white;
+}
+
+#header {
+    display: flex;
+    align-items: flex-end;
+}
+
+nav {
+    background-color: var(--secondary-light);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 1px 1px 4px #000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 25px;
+    height: 50px;
+}
+
+nav a:first-child {
+    margin-right: auto;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+details {
+    position: relative;
+    margin: 35px;
+}
+
+
+.productlist img {
+
+    transition: all 0.4s;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.productlist vegetarian {
+    transition: all 0.4s;
+    border-radius: 25px;
+    position: relative;
+    margin-right:-5vw;
+}
+
+.product:hover img {}
+
+.productlist > section {
+    display: grid;
+    max-width: 1200px;
+    margin: auto;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 35px;
+    margin-bottom: 45px;
+}
+
+.productlist > section > h2 {
+    grid-column: 1/-1;
+    margin-bottom: 10px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: var(--tertiary);
+}
+
+.product p {
+    color: var(--font-color-secondary);
+    font-size: 1rem;
+}
+
+.productbody {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    height: 20vw;
+}
+
+.productbody button {
+    cursor: pointer;
+    margin-top: 1auto;
+    background: #FFD046;
+    color: var(--secondary);
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+}
+
+footer {
+    background: var(--secondary);
+    margin-bottom: 0;
+    height: 50px;
+    color: #fff;
+    display: flex;
+}
+
+footer p {
+    margin-left: 60px;
+}
+
+
+.icons img {
+    max-height: 5vw;
+    margin: -6vw 0vw 0vw 1vw;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+button.active {
+    background: hotpink;
+    color: white;
+}
+
+
+.soldout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--secondary-light);
+    color: white !important;
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.hide {
+    display: none;
+}
+
+.modal-background {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border: 1px solid #7c1f17;
+    margin: 1em;
+    padding: 2em;
+}
+
+
+:root {
+    --primary: #fff;
+    --secondary: #621708;
+    --tertiary: #000;
+    --secondary-light: #941B0C;
+    --font-color-primary: #071E22;
+    --font-color-secondary: hsl(0, 0%, 37%);
+    --font-body: 'Comic Neue', cursive;
+    --font-headers: 'Major Mono Display', monospace;
+}
