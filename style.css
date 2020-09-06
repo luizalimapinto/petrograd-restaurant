@@ -1,5 +1,3 @@
-
-
 * {
     box-sizing: border-box;
 }
@@ -51,6 +49,7 @@ h4 {
     float: right;
     background-color: red;
     color: white;
+    font-size:
 }
 
 #header {
@@ -90,8 +89,6 @@ details {
 
 
 .productlist img {
-
-    transition: all 0.4s;
     border-radius: 20px 20px 0px 0px;
 }
 
@@ -99,10 +96,9 @@ details {
     transition: all 0.4s;
     border-radius: 25px;
     position: relative;
-    margin-right:-5vw;
+    margin-right: -5vw;
 }
 
-.product:hover img {}
 
 .productlist > section {
     display: grid;
@@ -168,8 +164,10 @@ footer p {
 
 .icons img {
     max-height: 5vw;
-    margin: -6vw 0vw 0vw 1vw;
+    margin: -5.3vw 0vw 0vw 1vw;
     position: absolute;
+    background-color: darkgreen;
+    border-radius: 35px;
 }
 
 .hidden {
@@ -222,7 +220,7 @@ button.active {
     --tertiary: #000;
     --secondary-light: #941B0C;
     --font-color-primary: #071E22;
-    --font-color-secondary: hsl(0, 0%, 37%);
+    --font-color-secondary: #646468;
     --font-body: 'Comic Neue', cursive;
     --font-headers: 'Major Mono Display', monospace;
 }

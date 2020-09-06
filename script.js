@@ -26,17 +26,16 @@ function createSections(categories) {
 }
 
 function createNavigation(categories) {
-    categories.forEach(cat => {
-        console.log(cat)
+    categories.forEach(categ => {
+        console.log(categ)
         const a = document.createElement("a");
-        a.textContent = cat;
-        a.setAttribute("href", `#${cat}`)
+        a.textContent = categ;
+        a.setAttribute("href", `#${categ}`)
         document.querySelector("nav").appendChild(a);
     })
 }
 
 function fetchProducts() {
-    // fetch data
     fetch("https://kea-alt-del.dk/t5/api/productlist")
         .then(function (response) {
             console.log(response)
@@ -49,22 +48,17 @@ function fetchProducts() {
 }
 
 function dataReceived(products) {
-    //loop through products
     products.forEach(showProduct)
 }
 
-//executed once for each product
 function showProduct(myProduct) {
     console.log(myProduct)
-    //finding the template
     const temp = document.querySelector("#productTemplate").content;
-    //clone the template
     const myCopy = temp.cloneNode(true);
 
     const img = myCopy.querySelector(".product_image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`)
     if (!myProduct.discount) {
-        //console.log("NOT DISCOUNT")
         myCopy.querySelector(".discount").classList.add("hidden")
     }
     if (myProduct.vegetarian) {
@@ -78,17 +72,14 @@ function showProduct(myProduct) {
 
     }
 
-    //1. find the article
     const article = myCopy.querySelector("article");
 
-    //2. add classes
     if (myProduct.vegetarian) {
         article.classList.add("vegetarian")
     }
     if (myProduct.alcohol) {
         article.classList.add("alcoholic")
     }
-    //fill out the template
     myCopy.querySelector(".data_name").textContent = myProduct.name;
     myCopy.querySelector(".data_description").textContent = myProduct.shortdescription;   myCopy.querySelector(".price").textContent = myProduct.price;
     myCopy.querySelector(".discount").textContent = myProduct.discount;
@@ -100,13 +91,11 @@ function showProduct(myProduct) {
             .then(res => res.json())
             .then(showDetails);
     });
-    //append
     const parentElem = document.querySelector("section#" + myProduct.category);
     parentElem.appendChild(myCopy)
 }
 
 const modal = document.querySelector(".modal-background");
-//once we have our data, ....
 function showDetails(data) {
     console.log(data)
     modal.querySelector(".modal-name").textContent = data.name;
@@ -115,13 +104,17 @@ function showDetails(data) {
     modal.classList.remove("hide");
 }
 
+
+modal.addEventListener("click", () => {
+    modal.classList.add("hide");
+});
+
 const vegfilter = document.querySelector("#vegfilter");
 vegfilter.addEventListener("click", vegFilterClicked);
 
 function vegFilterClicked() {
     vegfilter.classList.toggle("active")
     const articles = document.querySelectorAll("article:not(.vegetarian)");
-    //console.log(articles)
     articles.forEach(elem => {
         elem.classList.toggle("hidden")
     })
@@ -133,16 +126,7 @@ alcfilter.addEventListener("click", alcFilterClicked);
 function alcFilterClicked() {
     alcfilter.classList.toggle("active")
     const articles = document.querySelectorAll("article.alcoholic");
-    //console.log(articles)
     articles.forEach(elem => {
         elem.classList.toggle("hidden")
     })
 }
-
-
-
-
-modal.addEventListener("click", () => {
-    modal.classList.add("hide");
-});
-
